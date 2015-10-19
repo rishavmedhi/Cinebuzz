@@ -1,0 +1,42 @@
+$(document).ready(function(){
+
+$("#go").on("click",function(){
+$.ajax({
+
+url:"/cgi-bin/movie_eng.py",
+data:{query:$("#search").val().trim()},
+type:"GET",
+success:function(data){
+var json=JSON.pavar json=JSON.parse(data);
+$.each(json,function(k,v){
+var m=v;
+$("#res").append(v["rating"]);
+$("res").append(v["director"]);
+
+//document.getElementById("res").innerHTML =
+//json.k obj.employees[1].firstName + " " + obj.employees[1].lastName;
+//console.log(k+" : "+v);
+rse(data);
+$.each(json,function(k,v){
+var m=v;
+$("#res").append(v["rating"]);
+$("res").append(v["director"]);
+
+//document.getElementById("res").innerHTML =
+//json.k obj.employees[1].firstName + " " + obj.employees[1].lastName;
+//console.log(k+" : "+v);
+
+});
+
+},
+error:function(err){
+console.log(err);
+
+}
+
+});
+
+
+});
+
+});
